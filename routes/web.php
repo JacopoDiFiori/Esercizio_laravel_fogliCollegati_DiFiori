@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PublicController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,25 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/-pagina2', function(){
-    return view('pagina2');
-});
 
-Route::get('welcome', function(){
-    return view('/welcome');
-});
 
-Route::get('-pagina4', function(){
-    return view('pagina4');
-});
-Route::get('-pagina3', function(){
-    return view('/pagina3');
-});
+Route::get('/',[PublicController::class,'homepage'])->name('homepage');
 
-Route::get('-home', function(){
-    return view('welcome');
-});
+Route::get('/chi-siamo', [PublicController::class, 'aboutUs'])->name('aboutUs');
+
+Route::get('/contatti', [PublicController::class, 'contacts'])->name('contacts');
+
+Route::get('/contatto/{id}', [PublicController::class, 'contactDetail'])->name('contact.detail');

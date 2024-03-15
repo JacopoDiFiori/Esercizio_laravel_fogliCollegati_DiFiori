@@ -9,31 +9,24 @@
 <body>
 
 <!-- INIZIO NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar bg-dark border-bottom border-body  navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 <div class="container-fluid">
-<a class="navbar-brand" href="#">Navbar</a>
+<a class="navbar-brand" href="/">AMADEUS</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
-<a class="nav-link active" aria-current="page" href="-home">Home</a>
+<a class="nav-link" aria-current="page" href="/">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{{route('aboutUs')}}">Chi siamo</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="-pagina2">Vai a pag2</a>  
+<a class="nav-link" href="{{route('contacts')}}">Contatti</a>
 </li>
-
-<li class="nav-item">
-    <a class="nav-link" href="-pagina3">Vai a pag3</a>  
-</li>
-
-<li class="nav-item">
-<a class="nav-link" href="-pagina4">Vai a pag4</a>  
-</li>
-
-
 </ul>
 <form class="d-flex" role="search">
 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -42,7 +35,33 @@
 </div>
 </div>
 </nav>
-<!-- FINE NAVBAR  -->
+
+
+
+<!-- struttura per le  cards  -->
+<h1 class="display-1">Pagina Chi siamo</h1>
+
+<div class="container p-3 mt-5">
+        <div class="row justify-content-around">
+            @foreach ($students as $student)  
+            <div class="col-12 col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="/img/foto no or.png" class="img-fluid" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $student['surname']}}</h5>
+                        <p class="card-text">{{ $student['name']}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+
+
+
+
 
 
 
@@ -51,13 +70,3 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-</html>
-
-
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
